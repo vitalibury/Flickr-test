@@ -1,0 +1,19 @@
+<div class="app">
+    <app-header></app-header>
+    <mat-drawer-container>
+        <mat-drawer mode="side" opened>
+            <mat-button-toggle-group vertical>
+                <mat-button-toggle value="bold" [routerLink]="['./finder']" routerLinkActive="active">
+                    <mat-icon>cloud</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="bold" [routerLink]="['./bookmarks']" routerLinkActive="active">
+                    <mat-icon>bookmarks</mat-icon>
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </mat-drawer>
+        <mat-drawer-content>
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
+    <app-footer></app-footer>
+</div>

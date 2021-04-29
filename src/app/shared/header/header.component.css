@@ -1,0 +1,5 @@
+mat-toolbar {
+    height: 8%;
+    background-color: lightgray;
+    justify-content: space-between;
+}

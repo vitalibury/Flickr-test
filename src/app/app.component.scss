@@ -1,0 +1,11 @@
+.app {
+    height: 100vh;
+
+    mat-drawer-container {
+        height: 84%;
+    }
+
+    .active {
+        background-color: rgb(206, 206, 206);
+    }
+}

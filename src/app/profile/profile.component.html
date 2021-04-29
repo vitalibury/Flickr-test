@@ -1,0 +1,29 @@
+<form class="profile" [formGroup]="form" (ngSubmit)="submit()">
+    <h3>Войти в свою учетную запись</h3>
+
+    <div class="profile-field">
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" placeholder="Введите email" />
+        <div *ngIf="form.get('email').touched && form.get('email').invalid" class="validation">
+            <small *ngIf="form.get('email').errors.required">*Обязательное поле</small>
+            <small *ngIf="form.get('email').errors.email">Введите корректный email</small>
+        </div>
+    </div>
+
+    <div class="profile-field">
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" formControlName="password" placeholder="Введите пароль" />
+        <div *ngIf="form.get('password').touched && form.get('password').invalid" class="validation">
+            <small *ngIf="form.get('password').errors.required">*Обязательное поле</small>
+            <small *ngIf="form.get('password').errors.minlength"
+                >Пароль должен быть
+                {{ form.get('password').errors.minlength.requiredLength }}
+                символов. Сейчас он
+                {{ form.get('password').errors.minlength.actualLength }}
+                символов</small
+            >
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid || submitted">Войти</button>
+</form>

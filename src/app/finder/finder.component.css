@@ -1,0 +1,102 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: hidden;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    overflow-y: scroll;
+}
+
+.content .pagination {
+    margin-right: 1rem;
+    display: flex;
+    align-self: flex-end;
+    border: solid 1px #000000;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.content .pagination div {
+    display: inline-block;
+    width: 10rem;
+    text-align: center;
+    border-right: solid 1px #000000;
+    border-left: solid 1px #000000;
+    background-color: #6175e6;
+}
+
+.content .pagination button {
+    height: 100%;
+    width: 7rem;
+    text-align: center;
+    border: none;
+    background-color: #6175e6;
+}
+
+.content .pagination button:hover {
+    cursor: pointer;
+    background-color: #6175e6;
+}
+
+.content .pagination button:disabled:hover {
+    cursor: default;
+    background-color: #6175e6;
+}
+
+.content .pagination div:last-child {
+    border-right: none;
+}
+
+.card {
+    padding: 0.5rem;
+    width: 20rem;
+    height: 14rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.4rem;
+    border: solid 1px #3f51b5;
+}
+
+.card img {
+    height: 10rem;
+}
+
+.card button {
+    margin-bottom: 0.2rem;
+    align-self: flex-start;
+    background-color: #6175e6;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.empty {
+    padding: 1rem;
+}
+
+.actions {
+    padding: 1rem 1.5rem;
+    display: flex;
+}
+
+.actions input {
+    flex-grow: 1;
+    margin-right: 1.5rem;
+}
+
+.empty {
+    height: 84%;
+}

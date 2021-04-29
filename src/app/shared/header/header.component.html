@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <h2>Image Finder</h2>
+    <div class="controls">
+        <button mat-icon-button title="Войти" [routerLink]="['./profile']">
+            <mat-icon>person</mat-icon>
+        </button>
+        <button mat-icon-button title="Выйти" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>

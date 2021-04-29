@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="actions">
+        <input
+            type="text"
+            placeholder="Find images"
+            (keyup.enter)="loadPhotos(searchField.value, 1); searchField.value = ''"
+            #searchField
+        />
+    </div>
+
+    <div class="content" *ngIf="photos$ | async as foo; else empty">
+        <div class="pagination" *ngIf="foo">
+            <button [disabled]="pageNumber === 1 || isLoading" (click)="prevPage()">Back</button>
+            <div>Page {{ pageNumber }} of {{ pagesAmount }}</div>
+            <button [disabled]="pageNumber === pagesAmount || isLoading" (click)="nextPage()">Forward</button>
+        </div>
+        <div class="cards" *ngIf="foo.length; else noResults">
+            <div class="card" *ngFor="let photo of foo">
+                <img
+                    src="https://farm{{ photo.farm }}.staticflickr.com/{{ photo.server }}/{{ photo.id }}_{{
+                        photo.secret
+                    }}.jpg"
+                    alt="{{ photo.title }}"
+                />
+                <button type="button" (click)="toBookmarkImage(photo, tags.value)" [disabled]="isCreating">
+                    Bookmark it!
+                </button>
+                <input type="text" placeholder="some tags?" #tags />
+            </div>
+        </div>
+    </div>
+
+    <ng-template #empty>
+        <div class="empty">No images here. Would you try to search for anything else?</div>
+    </ng-template>
+    <ng-template #noResults>
+        <div class="empty">No results for your request. Would you try to search for anything else?</div>
+    </ng-template>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="content" *ngIf="bookmarks$ | async as foo; else empty">
+        <div class="cards">
+            <div class="card" *ngFor="let item of foo">
+                <img
+                    src="https://farm{{ item.photo.farm }}.staticflickr.com/{{ item.photo.server }}/{{
+                        item.photo.id
+                    }}_{{ item.photo.secret }}.jpg"
+                    alt="{{ item.photo.title }}"
+                />
+                <p>{{ item.tags }}</p>
+                <button type="button" (click)="deleteBookmark(item.id)">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #empty>
+        <div class="empty">No bookmarks here.</div>
+    </ng-template>
+</div>
